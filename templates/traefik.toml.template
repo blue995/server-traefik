@@ -11,6 +11,8 @@ defaultEntryPoints = ["https","http"]
   [entryPoints.https]
   address = ":443"
   [entryPoints.https.tls]
+  [entryPoints.ui]
+  address = ":8080"
 
 [retry]
 
@@ -25,5 +27,10 @@ email = "${TRAEFIK_ACME_EMAIL}"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
+
 [acme.httpChallenge]
 entryPoint = "http"
+
+[api]
+entryPoint = "ui"
+dashboard = true
