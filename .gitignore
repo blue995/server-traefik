@@ -1,0 +1,6 @@
+# Visible files
+docker-compose.yml
+config/traefik.toml
+
+# Hidden files
+.env
