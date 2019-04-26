@@ -1,7 +1,7 @@
 version: "3"
 
 networks:
-  contabo:
+  web:
     external: true
   internal:
     external: false
@@ -11,12 +11,27 @@ services:
     image: containous/whoami # A container that exposes an API to show its IP address
     labels:
       - traefik.enable=true
-      - traefik.docker.network=contabo
+      - traefik.docker.network=web
       - traefik.backend=whoami
       - traefik.entrypoint=https
       - traefik.host.passHostHeader=true
       - traefik.host.frontend.rule=Host:your.domain.tld,whoami.your.domain.tld
       - traefik.path.frontend.rule=Path:/whoami
     networks: 
-      - contabo
+      - web
+      - internal
+
+  flask:
+    image: markbenschop/flask-demo:1.3
+    expose:
+      - 5000
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=web
+      - traefik.backend=flask-sample
+      - traefik.entrypoint=https
+      - traefik.host.passHostHeader=true
+      - traefik.path.frontend.rule=PathStrip:/flask
+    networks: 
+      - web
       - internal
