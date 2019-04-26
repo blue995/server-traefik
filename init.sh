@@ -16,7 +16,7 @@ if [[ ! -f "$ENV_FILE" ]]; then
     echo "$SEPARATOR"
     cat "$ENV_FILE"
     echo "$SEPARATOR"
-    echo "Specify missing variables in '$ENV_FILE' first."
+    echo "TODO: Specify missing variables in '$ENV_FILE' first."
     exit 0
 fi
 
@@ -39,6 +39,7 @@ echo
 
 if [[ -z "$TRAEFIK_DOCKER_DOMAIN" || -z "$TRAEFIK_ACME_EMAIL" ]]; then
     echo "Missing some environment variables in '$ENV_FILE' file."
+    echo "TODO: Specify missing variables in '$ENV_FILE' first."
     exit 1
 fi
 
@@ -55,3 +56,7 @@ echo
 
 echo "Creating traefik.toml file based on the following template: '$TRAEFIK_TOML_FILE_TEAMPLATE'"
 envsubst < "$TRAEFIK_TOML_FILE_TEAMPLATE" | cat > config/traefik.toml
+
+echo
+echo "Start Traefik with 'docker-compose up -d'"
+echo "Logs (docker logs traefik) will be at a minimum, because the log level is on ERROR"

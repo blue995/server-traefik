@@ -4,3 +4,6 @@ config/traefik.toml
 
 # Hidden files
 .env
+
+# DON'T ignore
+!sample-services/*

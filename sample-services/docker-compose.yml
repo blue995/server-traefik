@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  contabo:
+    external: true
+  internal:
+    external: false
+
+services:
+  whoami:
+    image: containous/whoami # A container that exposes an API to show its IP address
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=contabo
+      - traefik.backend=whoami
+      - traefik.entrypoint=https
+      - traefik.host.passHostHeader=true
+      - traefik.host.frontend.rule=Host:your.domain.tld,whoami.your.domain.tld
+      - traefik.path.frontend.rule=Path:/whoami
+    networks: 
+      - contabo
+      - internal
