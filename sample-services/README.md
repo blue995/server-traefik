@@ -6,11 +6,16 @@ It is important that you've executed the `init.sh` script correctly and configur
 
 ## docker-compose.yml
 
-This is a separate `docker-compose.yml` file with the `whoami` and `flask` service that are connected to an external network `web` and an internal network `internal`.
+This is a separate `docker-compose.yml` file with the following services:
+
+* `whoami`: Simple web page with the content of the result of a `whoami` script execution
+* `flask`: Hello world flask application
+
+All services are connected to an external network `web` and an internal network `internal`.
 
 The external network `web` has it's name from the `.env` file and was created during the `init.sh` script.
 
-The connections of the `whoami` and `flask` services with the `web` network allow Traefik to discover the services and adjust it's configuration automatically after the service containers start up.
+The connections of the services with the `web` network allow Traefik to discover the services and adjust it's configuration automatically after the service containers start up.
 
 After you've started the service containers the services will be reachable by the following URLs:
 
