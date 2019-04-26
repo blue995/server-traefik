@@ -16,15 +16,19 @@ Execute `init.sh` and follow the instructions. This will do the following:
 
 ## Include other services into Traefik
 
-Here are some important aspects that Traefik can find your docker services:
+### Important
+
+Here are some important aspects so Traefik can find your docker services:
 
 1. The service has to be part of the same docker network as your Traefik instance
 2. The labels of your service/container have to be conform to the version of Traefik you've specified in your `.env` file
 
 More info about labels: [https://docs.traefik.io/configuration/backends/docker/](https://docs.traefik.io/configuration/backends/docker/)
 
-An example configuration of a separate service where the routing will be managed by Traefik can be found in the `sample-services` folder.
+### Examples
 
-## Soon
+An example configuration of a separate service where the routing will be managed by Traefik can be found in the [`sample-services`](https://github.com/blue995/server-traefik/tree/master/sample-services) folder.
+
+## In construction...
 
 More instructions coming soon :heart:
