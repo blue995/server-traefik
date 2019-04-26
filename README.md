@@ -1,5 +1,9 @@
 # Traefik setup with Let's Encrypt certificates (https)
 
+* Traefik: [https://traefik.io/](https://traefik.io/)
+* Traefik Documentation: [https://docs.traefik.io/](https://docs.traefik.io/)
+* Let's Encrypt: [https://letsencrypt.org/](https://letsencrypt.org/)
+
 ## Installation
 Execute `init.sh` and follow the instructions. This will do the following:
 
