@@ -54,6 +54,12 @@ else
 fi
 echo
 
+if [[ ! -d "config" ]]; then
+	echo "Config directory does not exist. Creating 'config' directory."
+	mkdir "config"
+	echo
+fi
+
 echo "Creating traefik.toml file based on the following template: '$TRAEFIK_TOML_FILE_TEAMPLATE'"
 envsubst < "$TRAEFIK_TOML_FILE_TEAMPLATE" | cat > config/traefik.toml
 echo
