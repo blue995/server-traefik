@@ -1,6 +1,7 @@
 # Visible files
 docker-compose.yml
 config/traefik.toml
+config/acme.json
 
 # Hidden files
 .env
