@@ -56,6 +56,15 @@ echo
 
 echo "Creating traefik.toml file based on the following template: '$TRAEFIK_TOML_FILE_TEAMPLATE'"
 envsubst < "$TRAEFIK_TOML_FILE_TEAMPLATE" | cat > config/traefik.toml
+echo
+
+ACME_FILE="config/acme.json"
+echo "Creating empty $ACME_FILE file and configuring file permissions."
+if [[ -f "$ACME_FILE" ]]; then
+	rm "$ACME_FILE"
+fi
+touch "$ACME_FILE"
+chmod 600 "$ACME_FILE"
 
 echo
 echo "Start Traefik with 'docker-compose up -d'"
